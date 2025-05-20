@@ -1,26 +1,58 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Login</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ELEJA - Login</title>
+
+  <!-- Importando a fonte Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Configuração da fonte no Tailwind via CDN -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Montserrat', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
 </head>
-<body>
-    <main>
-        <img src="assets/logo-sem-fundo.png" alt="logo">
-        <section>
-            <h1>Acesse para votar</h1>
-            <form action="" method="post">
-                <label for="ra">RA</label>
-                <input type="number" name="ra" id="ra">
-                <label for="senha">Senha</label>
-                <input type="password" name="senha" id="senha">
-                <a href="#">Esqueceu a senha?</a>
-                <input class="botao" type="submit" value="Entrar">
-            </form>
-        </section>
-        <p>Sistema de Votação Escolar</p>
-    </main>
+
+<body class="font-sans bg-gray-100 text-gray-900">
+  <main class="min-h-screen flex items-center justify-center">
+    <section class="bg-white px-10 py-6 rounded-lg shadow-md w-full max-w-xl text-center">
+      <header class="mb-4">
+        <img src="assets/logo-sem-fundo.png" alt="Logo do sistema Eleja" class="mx-auto w-40" />
+      </header>
+
+      <form action="#" method="post" class="text-left border px-8 py-6 rounded-lg shadow-sm">
+        <h1 class="text-2xl font-semibold mb-4 text-center">Acesse para votar</h1>
+
+        <label for="ra" class="block mb-1">RA</label>
+        <input type="text" id="ra" name="ra" required
+          class="w-full px-4 py-2 border border-gray-300 rounded mb-4" />
+
+        <label for="senha" class="block mb-1">Senha</label>
+        <input type="password" id="senha" name="senha" required
+          class="w-full px-4 py-2 border border-gray-300 rounded mb-2" />
+
+        <a href="#" class="text-sm font-semibold text-red-600 hover:underline block mb-4">Esqueceu sua senha?</a>
+
+        <button type="submit"
+          class="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-2 rounded">Entrar</button>
+      </form>
+
+      <footer class="mt-6">
+        <p class="text-sm text-gray-600">Sistema de Votação Escolar</p>
+      </footer>
+    </section>
+  </main>
 </body>
 </html>
