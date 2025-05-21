@@ -57,7 +57,7 @@
                         <p>Data de Encerramento: 16/05/2025 ás 19:45</p>
                     </section>
                     <section>
-                        <button class="px-12 py-2 rounded-lg bg-[#b20000] hover:bg-red-600 text-xl font-semibold text-white" type="button">VOTAR</button>
+                        <button class="px-12 py-2 rounded-lg bg-[#b20000] hover:bg-red-600 text-xl font-semibold text-white" data-modal="modal-representante" id="votar" type="button">VOTAR</button>
                     </section>
                 </section>
             </article>
@@ -103,7 +103,18 @@
                     </section>
                 </section>
             </article>
-        
     </main>
+
+    <dialog id="modal-candidatos">
+        <h2>Selecione seu representante de turma</h2>
+        <section>
+            <article>
+                <img src="" alt="">
+                <p>Nome Completo</p>
+                <input type="radio" name="selecionar" id="selecionar">
+            </article>
+        </section>
+    </dialog>
+    <script src="script.js"></script>
 </body>
 </html>
