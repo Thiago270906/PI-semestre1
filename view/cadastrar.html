@@ -29,24 +29,36 @@
   <main class="min-h-screen flex items-center justify-center">
     <section class="bg-white px-10 py-6 rounded-lg border-2 shadow-xl w-full max-w-xl text-center">
       <header class="mb-4">
-        <img src="assets/logo-sem-fundo.png" alt="Logo do sistema Eleja" class="mx-auto w-40" />
+        <img src="../assets/logo-sem-fundo.png" alt="Logo do sistema Eleja" class="mx-auto w-40" />
       </header>
 
       <form action="#" method="post" class="text-left border px-8 py-6 rounded-lg shadow-md">
-        <h1 class="text-2xl font-semibold mb-4 text-center">Acesse para votar</h1>
+        <h1 class="text-2xl font-semibold mb-4 text-center">Cadastrar</h1>
 
-        <label for="ra" class="block mb-1">Matrícula</label>
-        <input type="text" id="ra" name="ra" required
+        <label for="nome" class="block mb-1">Nome:</label>
+        <input type="text" id="nome" name="nome" required
           class="w-full px-4 py-2 border border-gray-300 rounded mb-4" />
 
+        <label for="curso" class="block mb-1">Curso:</label>
+        <select class="w-full px-4 py-3 border border-gray-300 rounded mb-4" name="curso">
+            <option value="dsm">DSM</option>
+            <option value="gpi">GPI</option>
+            <option value="ge">GE</option>
+        </select>
+        
+        <label for="periodo" class="block mb-1">Período:</label>
+        <input type="password" id="periodo" name="periodo" required
+          class="w-full px-4 py-2 border border-gray-300 rounded mb-4" />
+        
+        <label for="matricula" class="block mb-1">Matrícula:</label>
+        <input type="password" id="matricula" name="matricula" required
+          class="w-full px-4 py-2 border border-gray-300 rounded mb-4" />
+        
         <label for="senha" class="block mb-1">Senha</label>
         <input type="password" id="senha" name="senha" required
-          class="w-full px-4 py-2 border border-gray-300 rounded mb-2" />
+          class="w-full px-4 py-2 border border-gray-300 rounded mb-4" />
 
-        <a href="#" class="text-sm font-semibold text-[#b20000] hover:underline block mb-4">Esqueceu sua senha?</a>
-
-        <a href="view/home.html"><button type="button" class="w-full bg-[#b20000] hover:bg-red-500 text-white font-semibold py-3 rounded mb-4">ENTRAR</button></a>
-        <a href="view/cadastrar.html"><button type="button" class="w-full bg-[#091113] text-white hover:bg-opacity-90 font-semibold py-3 rounded">CADASTRAR-SE</button></a>
+        <a href="../login.html"><button type="button" class="w-full bg-[#b20000] hover:bg-red-500 text-white font-semibold py-3 rounded mb-4">CADASTRAR</button></a>
       </form>
 
       <footer class="mt-6">
