@@ -9,6 +9,17 @@ btnVotar.forEach(button => {
     });
 });
 
+const btnCandidatar = document.querySelectorAll('.candidatar')
+
+btnCandidatar.forEach(button => {
+    button.addEventListener('click', () =>{
+        const modalId = button.getAttribute('data-modal');
+        const modal = document.getElementById(modalId);
+
+        modal.showModal();
+    });
+});
+
 const btnFechar = document.querySelectorAll('.cancelar');
 
     btnFechar.forEach(button => {
@@ -49,6 +60,44 @@ botaoVotar.addEventListener('click', function(){
     swalWithBootstrapButtons.fire({
       title: "Confirmado!",
       text: "Seu voto foi confirmado com sucesso.",
+      icon: "success"
+    });
+    } else if (
+        result.dismiss === Swal.DismissReason.cancel
+    ) {
+    modal.showModal();
+    }
+    });
+})
+
+const botaoCandidatar = document.querySelector(".confirmarVoto")
+botaoVotar.addEventListener('click', function(){
+    const modal = document.getElementById('modal-formulario');
+    modal.close();
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            container: 'z-[9999] bg-black/50 backdrop-blur-sm font-sans',
+            popup: 'border-2 rounded-xl shadow-xl p-6 bg-white',
+            title: 'text-2xl font-bold text-black',
+            confirmButton: 'bg-[#b20000] hover:bg-red-600 text-white font-medium px-4 py-2 rounded',
+            cancelButton: 'bg-gray-200 hover:bg-gray-400 text-black font-medium px-4 py-2 rounded'
+        },
+        
+        buttonsStyling: true
+    });
+    swalWithBootstrapButtons.fire({
+        title: "Deseja confirmar sua candidatura?",
+        text: "Após a confirmação você será um candidato para a votação",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Confirmar",
+        cancelButtonText: "Cancelar",
+        reverseButtons: true
+    }).then((result) => {
+    if (result.isConfirmed) {
+    swalWithBootstrapButtons.fire({
+      title: "Confirmado!",
+      text: "Sua candidatura foi realizado com sucesso.",
       icon: "success"
     });
     } else if (

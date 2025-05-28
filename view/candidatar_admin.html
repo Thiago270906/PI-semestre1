@@ -44,31 +44,33 @@
     </nav>
     
     <main class="flex flex-col h-auto items-center">
-        <div class="w-full flex h-20 border-b border-gray-400 shadow-sm mb-8 items-center justify-center">
+        <div class="w-full flex flex-row h-20 border-b border-gray-400 shadow-sm mb-8 items-center justify-around">
             <input class="min-w-[500px] px-4 py-2 border border-gray-400 rounded-3xl" placeholder="Buscar Votação" type="text" id="filtro" name="filtro">
-            <button class="absolute left-[61%]"><img class="w-7" src="/assets/lupa.png" alt="filtro"></button>
+            <button class="absolute left-[42%]"><img class="w-7" src="/assets/lupa.png" alt="filtro"></button>
+            <button class="w-max  p-3 rounded-lg bg-[#b20000] hover:bg-red-600 text-xl font-semibold text-white" data-modal="modal-formulario" type="button">CRIAR CANDIDATURA</button>
+
         </div>
 
-        <div class="flex flex-col w-full min-h-max border-b border-gray-400 justify-center mb-8">
+        <div class="flex flex-col w-full min-h-max border-gray-400 justify-center mb-8">
 
-            <h2 class="m-auto text-3xl font-bold mb-5">Disponíveis</h2>
+            <h2 class="m-auto text-3xl font-bold mb-5">Candidaturas</h2>
 
             <div class="flex flex-col border px-12 py-6 shadow-md mb-10 w-max mx-auto min-h-[200px]">
                 <h2 class="text-2xl font-semibold mb-1">Candidatura para representante de sala do Primeiro Semestre/DSM</h2>
                 <p class="mx-auto mb-4">Disponível até: 16/05/2025 ás 19:45</p>
-                <button class="candidatar mx-auto w-[14rem] py-4 rounded-lg bg-[#b20000] hover:bg-red-600 text-xl font-semibold text-white mt-auto" data-modal="modal-formulario" type="button">CANDIDATAR-SE</button>
+                <div class="flex">
+                    <button class="mx-auto w-max p-3 rounded-lg bg-white outline border-gray-300 text-xl font-semibold text-gray-300 mt-auto" disabled type="button">EXCLUIR CANDIDATURA</button>
+                    <button class="candidatar mx-auto w-max p-3 rounded-lg bg-[#b20000] hover:bg-red-600 text-xl font-semibold text-white mt-auto" data-modal="modal-formulario" type="button">VIZUALIZAR CANDIDATURA</button>
+                </div>
             </div>
-
-        </div>
-
-        <div class="flex flex-col w-full min-h-max justify-center">
-
-            <h2 class="m-auto text-3xl font-bold mb-5">Indisponíveis</h2>
 
             <div class="flex flex-col border px-12 py-6 shadow-md mb-10 w-max mx-auto min-h-[200px]">
                 <h2 class="text-2xl font-semibold mb-1">Candidatura para representante de sala do Segundo Semestre/DSM</h2>
                 <p class="mx-auto mb-4">Disponível até: 16/05/2025 ás 19:45</p>
-                <button class="mx-auto w-[14rem] py-4 rounded-lg bg-white outline border-gray-300 text-xl font-semibold text-gray-300 mt-auto" disabled type="button">INDISPONÍVEL</button>
+                <div class="flex">
+                    <button class="mx-auto w-max p-3 rounded-lg bg-white outline border-gray-300 text-xl font-semibold text-gray-300 mt-auto" disabled type="button">EXCLUIR CANDIDATURA</button>
+                    <button class="candidatar mx-auto w-max p-3 rounded-lg bg-[#b20000] hover:bg-red-600 text-xl font-semibold text-white mt-auto" data-modal="modal-formulario" type="button">VIZUALIZAR CANDIDATURA</button>
+                </div>
             </div>
 
         </div>
