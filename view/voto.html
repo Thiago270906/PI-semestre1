@@ -32,19 +32,23 @@
 </head>
 
 <body class="font-sans bg-white text-black">
-    <nav class="flex bg-black max-h-max px-7 py-3 justify-between items-center">
-        <a href="home.html"><img class="max-w-48" src="/assets/logo-sem-fundo-branca.png" alt="logo do Sistema ELEJA branca"></a>
-        <ul class="flex w-3xl items-center space-x-20 text-white text-xl">
-            <li><a class="hover:text-[#b20000]" href="notificacao.html">Notificações</a></li>
-            <li><a class="hover:text-[#b20000]" href="regulamento.html">Regulamento</a></li>
-            <li><a class="hover:text-[#b20000]" href="candidatar.html">Candidatar</a></li>
-            <li><a class="hover:text-[#b20000]" href="voto.html">Votação</a></li>
-            <li><a href="Home.html"><img class="bg-white h-20 rounded-full" src="/assets/user.png" alt=""></a></li>
-        </ul>
+    <nav class="flex flex-col bg-white max-h-max justify-between items-center">
+        <div class="flex items-center w-full justify-between">
+            <a href="home.html"><img class="max-w-48" src="/assets/logo-fatec.png" alt="logo fatec"></a>
+            <img src="/assets/logo-cps.png" class="max-w-48" alt="logo cps">
+        </div>
+        <div class="flex w-full justify-center h-12 bg-[#b20000]">
+            <ul class="flex w-3xl items-center space-x-20 text-white text-xl">
+                <li><a class="hover:text-black" href="notificacao.html">Notificações</a></li>
+                <li><a class="hover:text-black" href="regulamento.html">Regulamento</a></li>
+                <li><a class="hover:text-black" href="candidatar.html">Candidatar</a></li>
+                <li><a class="hover:text-black" href="voto.html">Votação</a></li>
+            </ul>
+        </div>
     </nav>
     
-    <main class="flex flex-col h-auto items-center">
-        <div class="w-full flex h-20 border-b border-gray-400 shadow-sm mb-8 items-center justify-center">
+    <main class="flex flex-col h-auto items-center pb-[50px]">
+        <div class="w-full flex h-20 border-b border-gray-400 shadow-sm mb-[50px] items-center justify-center">
             <input class="min-w-[500px] px-4 py-2 border border-gray-400 rounded-3xl" placeholder="Buscar Votação" type="text" id="filtro" name="filtro">
             <button class="absolute left-[61%]"><img class="w-7" src="/assets/lupa.png" alt="filtro"></button>
         </div>
@@ -108,6 +112,12 @@
             </div>
         </div>
     </main>
+
+    <footer class="bg-black flex flex-col items-center py-4">
+        <img class="max-w-48" src="/assets/logo-sem-fundo-branca.png" alt="logo ELEJA">
+        <p class="text-white">&copy; Todos os direitos reservados ao grupo <b>ELEJA.</b></p>
+        <p class="text-white">Esse sistema é exclusivo para uso escolar e segue as normas do regulamento.</p>
+    </footer>
 
     <dialog id="modal-candidatos">
         <div class="flex flex-col p-5 gap-6 max-w-[900px]">
