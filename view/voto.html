@@ -123,7 +123,7 @@
         <div class="flex flex-col p-5 gap-6 max-w-[900px]">
             <div class="flex">
                 <h2 class="mx-auto text-2xl font-bold">Selecione seu representante de turma</h2>
-                <button class="cancelar w-8 bg-[#b20000] rounded-md" data-modal="modal-candidatos"><img class="h-8 mx-auto" src="/assets/cancelar.png" alt="botão cancelar"></button>
+                <button class="absolute right-4 cancelar w-8 bg-[#b20000] rounded-md" data-modal="modal-candidatos"><img class="h-8 mx-auto" src="/assets/cancelar.png" alt="botão cancelar"></button>
             </div>
 
             <div class="flex gap-4 overflow-x-auto pl-4 pr-4 scroll-pl-4 snap-x">
@@ -131,37 +131,38 @@
                 <div class="flex flex-col items-center gap-2 border-2 py-4 rounded-md w-56 snap-start shrink-0">
                     <img class="w-40" src="/assets/user.png" alt="">
                     <p class="text-lg font-semibold">Nome Completo</p>
-                    <div class="flex gap-1 items-center">
-                        <input class="h-4 w-4 transition hover:bg-red-600" type="radio" name="selecionar">
-                        <label>Selecione</label>
-                    </div>
+                    <label class="flex gap-1 items-center cursor-pointer">
+                            <input class="peer hidden" type="radio" name="selecionar">
+                            <span class="px-2 py-2 rounded-full border border-gray-500 peer-checked:bg-red-600"></span>
+                    Selecione</label>
+                    
                 </div>
 
                 <div class="flex flex-col items-center gap-2 border-2 py-4 rounded-md w-56 snap-start shrink-0">
                     <img class="w-40" src="/assets/user.png" alt="">
                     <p class="text-lg font-semibold">Nome Completo</p>
-                    <div class="flex gap-1 items-center">
-                        <input class="h-4 w-4" type="radio" name="selecionar">
-                        <label>Selecione</label>
-                    </div>
+                    <label class="flex gap-1 items-center cursor-pointer">
+                            <input class="peer hidden" type="radio" name="selecionar">
+                            <span class="px-2 py-2 rounded-full border border-gray-500 peer-checked:bg-red-600"></span>
+                    Selecione</label>
                 </div>
 
                 <div class="flex flex-col items-center gap-2 border-2 py-4 rounded-md w-56 snap-start shrink-0">
                     <img class="w-40" src="/assets/user.png" alt="">
                     <p class="text-lg font-semibold">Nome Completo</p>
-                    <div class="flex gap-1 items-center">
-                        <input class="h-4 w-4" type="radio" name="selecionar">
-                        <label>Selecione</label>
-                    </div>
+                    <label class="flex gap-1 items-center cursor-pointer">
+                            <input class="peer hidden" type="radio" name="selecionar">
+                            <span class="px-2 py-2 rounded-full border border-gray-500 peer-checked:bg-red-600"></span>
+                    Selecione</label>
                 </div>
 
                 <div class="flex flex-col items-center gap-2 border-2 py-4 rounded-md w-56 snap-start shrink-0">
                     <img class="w-40" src="/assets/user.png" alt="">
                     <p class="text-lg font-semibold">Nome Completo</p>
-                    <div class="flex gap-1 items-center">
-                        <input class="h-4 w-4" type="radio" name="selecionar">
-                        <label >Selecione</label>
-                    </div>
+                    <label class="flex gap-1 items-center cursor-pointer">
+                            <input class="peer hidden" type="radio" name="selecionar">
+                            <span class="px-2 py-2 rounded-full border border-gray-500 peer-checked:bg-red-600"></span>
+                    Selecione</label>
                 </div>
 
             </div>
