@@ -31,6 +31,17 @@ btnCriarCandidatura.forEach(button => {
     });
 });
 
+const btnCriarVotacao= document.querySelectorAll('.criarVotacao')
+
+btnCriarVotacao.forEach(button => {
+    button.addEventListener('click', () =>{
+        const modalId = button.getAttribute('data-modal');
+        const modal = document.getElementById(modalId);
+
+        modal.showModal();
+    });
+});
+
 const btnFechar = document.querySelectorAll('.cancelar');
 
     btnFechar.forEach(button => {
@@ -149,9 +160,34 @@ function confirmarCandidatura() {
     })
 }
 
+function confirmarVotacao() {
+    const botaoConfirmarVotacao= document.querySelector(".confirmarVotacao")
+    botaoConfirmarVotacao.addEventListener('click', function(){
+    const modal = document.getElementById('modal-formulario');
+    modal.close();
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            container: 'z-[9999] bg-black/50 backdrop-blur-sm font-sans',
+            popup: 'border-2 rounded-xl shadow-xl p-6 bg-white',
+            title: 'text-2xl font-bold text-black',
+            confirmButton: 'bg-[#b20000] hover:bg-red-600 text-white font-medium px-4 py-2 rounded',
+            cancelButton: 'bg-gray-200 hover:bg-gray-400 text-black font-medium px-4 py-2 rounded'
+        },
+        
+        buttonsStyling: true
+    });
+    swalWithBootstrapButtons.fire({
+      title: "Sucesso!",
+      text: "Votações abertas.",
+      icon: "success"
+    });
+    })
+}
+
 function excluirCandidatura() {
-    const botaoExcluirCandidatura = document.querySelector(".excluirCandidatura")
-    botaoExcluirCandidatura.addEventListener('click', function(){
+    const botaoExcluirCandidatura = document.querySelectorAll(".excluirCandidatura")
+    botaoExcluirCandidatura.forEach(button => {
+    button.addEventListener('click', function(){
     const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
             container: 'z-[9999] bg-black/50 backdrop-blur-sm font-sans',
@@ -173,11 +209,13 @@ function excluirCandidatura() {
         reverseButtons: true
     });
     })
+    })
 }
 
 function excluirVotacao() {
-    const botaoExcluirVotacao = document.querySelector(".excluirVotacao")
-    botaoExcluirVotacao.addEventListener('click', function(){
+    const botaoExcluirVotacao = document.querySelectorAll(".excluirVotacao")
+    botaoExcluirVotacao.forEach(button => {
+    button.addEventListener('click', function(){
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         container: 'z-[9999] bg-black/50 backdrop-blur-sm font-sans',
@@ -206,4 +244,5 @@ function excluirVotacao() {
       reverseButtons: true,
     });
     })
+})
 }
