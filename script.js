@@ -246,3 +246,21 @@ function excluirVotacao() {
     })
 })
 }
+
+const btnCadastrar = document.querySelectorAll('.cadastrar')
+btnCadastrar.forEach(button => {
+    button.addEventListener('click', (e) =>{
+        e.preventDefault(); // Impede o envio imediato do formulário
+
+        Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Cadastro realizado com sucesso!",
+            showConfirmButton: false,
+            timer: 1500
+        }).then(() => {
+            // Redireciona após o alerta
+            window.location.href = "../login.html";
+        });
+    });
+});
