@@ -260,7 +260,7 @@ btnCadastrar.forEach(button => {
             timer: 1500
         }).then(() => {
             // Redireciona após o alerta
-            window.location.href = "../login.html";
+            window.location.href = "../index.html";
         });
     });
 });
