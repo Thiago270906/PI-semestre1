@@ -33,11 +33,11 @@
         <img src="assets/logo-sem-fundo.png" alt="Logo do sistema Eleja" class="mx-auto w-40" />
       </header>
 
-      <form action="#" method="post" class="text-left border px-8 py-6 rounded-lg shadow-md">
+      <form action="login.php" method="post" class="text-left border px-8 py-6 rounded-lg shadow-md">
         <h1 class="text-2xl font-semibold mb-4 text-center">Acesse para votar</h1>
 
-        <label for="ra" class="block mb-1">Matrícula</label>
-        <input type="text" id="ra" name="ra" required
+        <label for="email" class="block mb-1">E-mail</label>
+        <input type="email" id="email" name="email" required
           class="w-full px-4 py-2 border border-gray-300 rounded mb-4" />
 
         <label for="senha" class="block mb-1">Senha</label>
@@ -46,7 +46,7 @@
 
         <a href="#" class="text-sm font-semibold text-[#b20000] hover:underline block mb-4">Esqueceu sua senha?</a>
 
-        <a href="view/home.html"><button type="button" class="w-full bg-[#b20000] hover:bg-red-500 text-white font-semibold py-3 rounded mb-4">ENTRAR</button></a>
+        <button type="submit" class="w-full bg-[#b20000] hover:bg-red-500 text-white font-semibold py-3 rounded mb-4">ENTRAR</button>
         <a href="cadastrar.html"><button type="button" class="w-full bg-[#091113] text-white hover:bg-opacity-90 font-semibold py-3 rounded">CADASTRAR-SE</button></a>
       </form>
 
