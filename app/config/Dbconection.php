@@ -8,14 +8,14 @@ class Database
     private $user;
     private $pass;
 
-   
-    $this = 'localhost';
-    $this->dbname = 'test';
-    $this->user = 'root';
-    $this->pass = '';
 
     private function connect()
     {
+        $this->host = 'localhost';
+        $this->dbname = 'test';
+        $this->user = 'root';
+        $this->pass = '';
+        
         $dsn = "mysql:host={$this->host};dbname={$this->dbname};";
 
         $options = [
