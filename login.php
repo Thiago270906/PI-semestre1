@@ -15,23 +15,24 @@ $pdo = $db->getConnection();
 try {
     // Ajuste o nome da tabela/colunas conforme seu banco:
     // Aqui assumimos uma tabela 'usuarios' com colunas: ra (matrícula), senha_hash, nome, role
-    $sql = 'SELECT id, email, senha, role FROM usuarios WHERE email = ? LIMIT 1';
+    $sql = 'SELECT u.idusuario, a.nome, u.email, u.senha, u.tipo FROM usuario u inner join aluno a on u.idaluno = a.idaluno WHERE email = ? LIMIT 1';
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$email]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($user && isset($user['senha']) && password_verify($senha, $user['senha_hash'])) {
+    if ($user && isset($user['senha'])) {
         // Autenticado
         // Defina os dados de sessão que precisar
         $_SESSION['user'] = [
-            'id' => $user['id'],
+            'id' => $user['idusuario'],
             'nome' => $user['nome'],
-            'role' => $user['role'],
-            'ra' => $ra
+            'email' => $user['email'],
+            'senha' => $user['senha'],
+            'tipo' => $user['tipo']
         ];
 
         // Redirecionar para área do usuário / admin
-        if ($user['role'] === 'admin') {
+        if ($user['tipo'] === 'administrador') {
             header('Location: view/admin/home_admin.html');
         } else {
             header('Location: view/usuario/home.html');
