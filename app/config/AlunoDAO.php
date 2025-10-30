@@ -1,27 +1,29 @@
 <?php
-require_once 'app/config/dbconection.php';
+require_once __DIR__ . '/dbconection.php';
 
 class AlunoDAO{
+    private $db;
+    public function __construct() {
+        $this->db = new Database();
+    }
+    
+    public function cadastrarAluno(Aluno $aluno){
 
-    public static function cadastrarAluno(string $nome, int $idturma){
-
-        $db = new Database();
-        $conn = $db->getConnection();
+        $conn = $this->db->getConnection();
         $sql = "INSERT INTO aluno (nome, idturma) VALUES (?, ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("si", $nome, $idturma);
-        $stmt->execute();
-        $stmt->close();
+        $stmt->execute([$aluno->getNome(), $aluno->getIdturma()]);
+        return $stmt->close();
     }
 
-    $ano = date("y");
-    $mes = date("m");
-    if($mes <= 6){
-        return 1;
-    }else{
-        return 2;
+    public function procurarAluno(Aluno $aluno){
+
+        $conn = $this->db->getConnection();
+        $sql = "SELECT idaluno FROM aluno WHERE nome = ? AND idturma = ? LIMIT 1";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$aluno->getNome(), $aluno->getIdturma()]);
+        $idaluno = $stmt->fetchColumn();
+        return $idaluno;
     }
-    echo ($data);
 }
-
 ?>

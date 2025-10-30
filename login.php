@@ -1,50 +1,36 @@
 <?php
 session_start();
-require_once __DIR__ . '/app/config/dbconection.php'; // caminho para sua classe Database
+require_once __DIR__ . '/app/model/Usuario.php';
+require_once __DIR__ . '/app/controller/UsuarioController.php';
 
 // Recebe POST
-$email = isset($_POST['email']) ? trim($_POST['email']) : '';
-$senha = isset($_POST['senha']) ? $_POST['senha'] : '';
-
-// Obter conexão (ajuste as credenciais se necessário)
-// Se sua Database já usa defaults corretos, basta Database::getInstance();
-$db = new Database();
-$pdo = $db->getConnection();
-
+$usuario = new Usuario();
+$usuario->setEmail(isset($_POST['email']) ? trim($_POST['email']) : '');
+$usuario->setSenha(isset($_POST['senha']) ? $_POST['senha'] : '');
 
 try {
-    // Ajuste o nome da tabela/colunas conforme seu banco:
-    // Aqui assumimos uma tabela 'usuarios' com colunas: ra (matrícula), senha_hash, nome, role
-    $sql = 'SELECT u.idusuario, a.nome, u.email, u.senha, u.tipo FROM usuario u inner join aluno a on u.idaluno = a.idaluno WHERE email = ? LIMIT 1';
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([$email]);
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    if (empty($usuario->getEmail()) || empty($usuario->getSenha())) {
+        throw new Exception('Preencha todos os campos');
+    }
 
-    if ($user && isset($user['senha'])) {
-        // Autenticado
-        // Defina os dados de sessão que precisar
-        $_SESSION['user'] = [
-            'id' => $user['idusuario'],
-            'nome' => $user['nome'],
-            'email' => $user['email'],
-            'senha' => $user['senha'],
-            'tipo' => $user['tipo']
-        ];
+        $usuarioController = new UsuarioController();
+        $user = $usuarioController->login($usuario);
 
         // Redirecionar para área do usuário / admin
         if ($user['tipo'] === 'administrador') {
-            header('Location: view/admin/home_admin.html');
+            header('Location: app/view/admin/home_admin.html');
         } else {
-            header('Location: view/usuario/home.html');
+            header('Location: app/view/usuario/home.html');
         }
         exit;
-    } else {
+        if (!$user) {
         // Credenciais inválidas
         // Você pode guardar mensagem na session e mostrar na index.php
         $_SESSION['login_error'] = 'Matrícula ou senha inválida.';
         header('Location: index.php');
         exit;
     }
+
 } catch (Exception $e) {
     error_log('Login error: ' . $e->getMessage());
     $_SESSION['login_error'] = 'Erro no processo de login. Tente novamente.';
